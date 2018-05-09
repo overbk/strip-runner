@@ -15,9 +15,7 @@ object StripRunner extends App {
 
   def processTurn(st: State): Unit = {
     IO.printTurnStart(st)
-
     val action = IO.chooseOnePrompt(st.current.actions, "action")
-
     processTurn(action.perform(st).advance)
   }
 

@@ -1,15 +1,9 @@
 import StripRunner.State
 import IO.chooseOnePrompt
-import Console._
 
 sealed trait Action {
   def allowed(state: State): Boolean = true
   def perform(state: State): State
-
-  private val bgColour = RED_B
-  private val textColour = BLACK
-
-  def println(s: String): Unit = System.out.println(s"$bgColour$textColour$s$RESET")
 }
 
 case object Forward extends Action {
